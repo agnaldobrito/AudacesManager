@@ -1,0 +1,30 @@
+<h1 class="float-left">Coleções</h1>
+
+<div class="container">
+  <div class="float-right">
+    <button type="button" class="btn btn-primary" [routerLink]="['novo']">
+      Nova Coleção
+    </button>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Coleção</th>
+        <th>Lançamento</th>
+        <th>Responsável</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let collectionList of collection$ | async"
+        (click)="onEdit(collectionList.id)"
+      >
+        <td>{{ collectionList.id }}</td>
+        <td>{{ collectionList.colecao }}</td>
+        <td>{{ collectionList.estacao + collectionList.ano }}</td>
+        <td>{{ collectionList.responsavel }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

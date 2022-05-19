@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="logo">
+    <img src="../../../../assets/images/isa 1.png" alt="" />
+    <p>AudacesManager</p>
+  </div>
+  <div class="item external" [routerLink]="['/']" routerLinkActive="selected">
+    Dashboard
+  </div>
+  <div class="cadastros">
+    <h4 class="title">Cadastros</h4>
+    <ul class="list">
+      <li class="item" [routerLink]="['colecoes']" routerLinkActive="selected">
+        Coleções
+      </li>
+      <li class="item" [routerLink]="['modelos']">Modelos</li>
+    </ul>
+  </div>
+
+  <div class="suporte">
+    <h4 class="title">Suporte</h4>
+    <ul class="list">
+      <li class="item">Obter Ajuda</li>
+      <li class="item">Enviar Comentários</li>
+    </ul>
+  </div>
+  <div class="item external logout">Logout</div>
+</div>
