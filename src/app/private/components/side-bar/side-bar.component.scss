@@ -1,9 +1,15 @@
 .container {
-  width: 220px;
   display: flex;
+  height: 100%;
+}
+.side-menu {
+  width: 220px;
+
+  display: flex;
+  height: max-content;
   flex-direction: column;
   justify-content: space-between;
-  row-gap: 1rem;
+
   padding: 2rem;
   height: auto;
   border-right: 1px solid #e4e4e4;
@@ -40,13 +46,14 @@
   background-color: #ebf0fe;
   color: #5874df;
 }
-.item:focus {
-  background-color: #ebf0fe;
-  color: #5874df;
-}
+
 .external {
   padding-left: 1rem;
 }
 .logout {
   margin-top: 4rem;
+}
+.selected {
+  background-color: #ebf0fe;
+  color: #5874df;
 }

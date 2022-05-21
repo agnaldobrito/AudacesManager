@@ -6,7 +6,7 @@
       "responsavel": "Yan",
       "estacao": "Inverno ",
       "marca": "Riachuelo",
-      "orcamento": 8799.99,
+      "orcamento": 8798.99,
       "ano": 2022
     },
     {
@@ -44,42 +44,26 @@
       "marca": "C&A",
       "orcamento": 10000,
       "ano": 2023
-    },
-    {
-      "id": 6,
-      "colecao": "Coleção 129",
-      "responsavel": "Sara",
-      "estacao": "Verão",
-      "marca": "SSHsuh",
-      "orcamento": 12500,
-      "ano": 2023
     }
   ],
   "modelos": [
     {
       "id": 1,
       "nome": "Modelo 1",
-      "colecao": 1
+      "responsavel": "Eduardo",
+      "tipo": "Bermuda",
+      "colecao": "Coleção 1",
+      "bordado": true,
+      "estampa": false
     },
     {
       "id": 2,
       "nome": "Modelo 2",
-      "colecao": 2
-    },
-    {
-      "id": 3,
-      "nome": "Modelo 3",
-      "colecao": 2
-    },
-    {
-      "id": 4,
-      "nome": "Modelo 4",
-      "colecao": 3
-    },
-    {
-      "id": 5,
-      "nome": "Modelo 5",
-      "colecao": 1
+      "responsavel": "Yan",
+      "tipo": "Camisa",
+      "colecao": "Coleção 5",
+      "bordado": false,
+      "estampa": true
     }
   ]
 }

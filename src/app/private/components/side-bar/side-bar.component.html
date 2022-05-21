@@ -1,9 +1,14 @@
-<div class="container">
+<!-- <div class="container"> -->
+<div class="side-menu">
   <div class="logo">
     <img src="../../../../assets/images/isa 1.png" alt="" />
     <p>AudacesManager</p>
   </div>
-  <div class="item external" [routerLink]="['/']" routerLinkActive="selected">
+  <div
+    class="item external"
+    [routerLink]="['dashboard']"
+    routerLinkActive="selected"
+  >
     Dashboard
   </div>
   <div class="cadastros">
@@ -12,7 +17,9 @@
       <li class="item" [routerLink]="['colecoes']" routerLinkActive="selected">
         Coleções
       </li>
-      <li class="item" [routerLink]="['modelos']">Modelos</li>
+      <li class="item" [routerLink]="['modelos']" routerLinkActive="selected">
+        Modelos
+      </li>
     </ul>
   </div>
 
@@ -25,3 +32,4 @@
   </div>
   <div class="item external logout">Logout</div>
 </div>
+<!-- </div> -->

@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { FullComponent } from './layout/full/full.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'dashboard',
+    pathMatch: 'prefix',
+    redirectTo: 'home',
   },
   {
-    path: 'dashboard',
+    path: 'home',
     component: FullComponent,
     children: [
       {
         path: '',
-        pathMatch: 'full',
-        redirectTo: 'home',
+        pathMatch: 'prefix',
+        redirectTo: 'dashboard',
       },
       {
-        path: 'home',
-        component: HomeComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
         path: 'colecoes',

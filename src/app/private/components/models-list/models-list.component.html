@@ -1,1 +1,30 @@
-<p>models-list works!</p>
+<h1 class="float-left">Modelos</h1>
+
+<div class="container">
+  <div class="float-right">
+    <button type="button" class="btn btn-primary" [routerLink]="['novo']">
+      Criar Modelo
+    </button>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ModeloID</th>
+        <th>Nome Modelo</th>
+        <th>Coleção</th>
+        <th>Responsável</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let modelList of model$ | async"
+        (click)="onEdit(modelList.id)"
+      >
+        <td>{{ modelList.id }}</td>
+        <td>{{ modelList.nome }}</td>
+        <td>{{ modelList.colecao }}</td>
+        <td>{{ modelList.responsavel }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

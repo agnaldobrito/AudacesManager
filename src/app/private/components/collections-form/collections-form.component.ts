@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { CollectionInterface } from '../../interfaces/collection-interface';
-import { ApiService } from '../../services/api.service';
+import { CollectionService } from '../../services/collection.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -18,19 +18,19 @@ export class CollectionsFormComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _apiService: ApiService,
+    private _collectionService: CollectionService,
     private _route: ActivatedRoute,
     private _location: Location
   ) {}
 
   ngOnInit(): void {
     this.formGroup();
+
     this._route.params.subscribe((params: any) => {
       const id = params['id'];
-      console.log(id);
-      const collection$ = this._apiService.loadIdCollection(id);
-      collection$.subscribe((itemName) => {
-        this.updateForm(itemName);
+      const collection$ = this._collectionService.loadByID(id);
+      collection$.subscribe((info) => {
+        this.updateForm(info);
       });
     });
   }
@@ -89,10 +89,10 @@ export class CollectionsFormComponent implements OnInit {
     if (this.form.valid) {
       this.submitted = true;
       if (this.form.value.id) {
-        this._apiService.updateCollection(this.form.value).subscribe();
+        this._collectionService.update(this.form.value).subscribe();
         this._location.back();
       } else {
-        this._apiService.createCollection(this.form.value).subscribe();
+        this._collectionService.create(this.form.value).subscribe();
         this._location.back();
       }
     }
@@ -100,5 +100,6 @@ export class CollectionsFormComponent implements OnInit {
   public onCancel() {
     this.submitted = false;
     this.form.reset();
+    this._location.back();
   }
 }
