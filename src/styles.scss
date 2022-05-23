@@ -6,6 +6,13 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
+
   color: #6a7090;
+}
+button {
+  background-color: #0073cf;
+}
+button:hover {
+  background-color: #015ca7;
 }

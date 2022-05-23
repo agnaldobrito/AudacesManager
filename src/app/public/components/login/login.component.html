@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="background">
+  <div class="container">
+    <img src="../../../../assets/images/Fill-51.png" alt="Logo da Audaces" />
+
+    <div class="login__box">
+      <div class="login__box--header">
+        <h1 class="header__title">Sign In</h1>
+        <p class="header__subTitle">
+          Insira sua credenciais para acessar sua conta
+        </p>
+      </div>
+
+      <form class="login__box--form">
+        <input
+          class="form__input"
+          type="text"
+          placeholder="Informe seu e-mail"
+        />
+        <input
+          class="form__input"
+          type="text"
+          placeholder="Informe sua senha"
+        />
+        <button class="form__btn" [routerLink]="['../user']">Entrar</button>
+      </form>
+    </div>
+
+    <div class="forgot-pwd" [routerLink]="['recover']">
+      <p>Esqueceu sua senha?</p>
+      <a>Redefinir senha</a>
+    </div>
+  </div>
+</div>

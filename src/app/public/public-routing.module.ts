@@ -2,20 +2,33 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { PasswordRecoverComponent } from './components/password-recover/password-recover.component';
+import { ContentComponent } from './layout/content/content.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
+    pathMatch: 'prefix',
     redirectTo: 'login',
   },
   {
     path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'recover',
-    component: PasswordRecoverComponent,
+    component: ContentComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'prefix',
+        // redirectTo: 'loginForm',
+        component: LoginComponent,
+      },
+      // {
+      //   path: 'loginForm',
+      //   component: LoginComponent,
+      // },
+      {
+        path: 'recover',
+        component: PasswordRecoverComponent,
+      },
+    ],
   },
 ];
 
