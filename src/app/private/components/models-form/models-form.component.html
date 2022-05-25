@@ -1,1 +1,70 @@
-<p>models-form works!</p>
+<form [formGroup]="form">
+  <div class="row g-3">
+    <div class="col">
+      <input
+        formControlName="nome"
+        type="text"
+        class="form-control"
+        placeholder="Nome da Coleção"
+        aria-label="Nome da Coleção"
+      />
+    </div>
+    <div class="col">
+      <input
+        formControlName="responsavel"
+        type="text"
+        class="form-control"
+        placeholder="Responsável pela coleção"
+        aria-label="Responsável pela coleção"
+      />
+    </div>
+  </div>
+  <div class="row g-3">
+    <div class="col">
+      <select
+        formControlName="tipo"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option selected>Tipo do Modelo</option>
+        <option [value]="models" *ngFor="let models of modelTypes">
+          {{ models }}
+        </option>
+      </select>
+    </div>
+    <div class="col">
+      <select
+        formControlName="colecao"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option selected>Selecionar Coleção</option>
+        <option
+          [value]="collection.colecao"
+          *ngFor="let collection of collectionList$ | async"
+        >
+          {{ collection.colecao }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row g-3">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        Default checkbox
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn" (click)="onCancel()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Salvar
+    </button>
+  </div>
+</form>
