@@ -64,6 +64,15 @@
       "colecao": "Coleção 5",
       "bordado": false,
       "estampa": true
+    },
+    {
+      "id": 3,
+      "nome": "shunda",
+      "responsavel": "agnaldo",
+      "tipo": "Bermuda",
+      "colecao": "Coleção 1",
+      "bordado": null,
+      "estampa": null
     }
   ]
 }

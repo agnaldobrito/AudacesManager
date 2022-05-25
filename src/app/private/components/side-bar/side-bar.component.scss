@@ -1,17 +1,10 @@
-.container {
-  display: flex;
-  height: 100%;
-}
 .side-menu {
   width: 220px;
-
   display: flex;
-  height: max-content;
+  height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
-
+  row-gap: 2rem;
   padding: 2rem;
-  height: auto;
   border-right: 1px solid #e4e4e4;
   margin: 0;
 }
@@ -47,11 +40,8 @@
   color: #5874df;
 }
 
-.external {
-  padding-left: 1rem;
-}
 .logout {
-  margin-top: 4rem;
+  margin-top: 12rem;
 }
 .selected {
   background-color: #ebf0fe;

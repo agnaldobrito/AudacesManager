@@ -1,4 +1,71 @@
-<form [formGroup]="form">
+<div class="container">
+  <h1 *ngIf="form.value.id === null">Criar Coleção</h1>
+  <h1 *ngIf="form.value.id">Editar {{ form.value.colecao }}</h1>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col">
+        <input
+          formControlName="colecao"
+          type="text"
+          placeholder="Nome da Coleção"
+          aria-label="Nome da Coleção"
+        />
+      </div>
+      <div class="col">
+        <input
+          formControlName="responsavel"
+          type="text"
+          placeholder="Responsável pela coleção"
+          aria-label="Responsável pela coleção"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input
+          formControlName="estacao"
+          type="text"
+          placeholder="Para qual Estação?"
+          aria-label="Para qual Estação?"
+        />
+      </div>
+      <div class="col">
+        <input
+          formControlName="marca"
+          type="text"
+          placeholder="Para qual marca você está criando?"
+          aria-label="Para qual marca você está criando?"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input
+          formControlName="orcamento"
+          type="number"
+          placeholder="Qual o orçamento desta coleção"
+          aria-label="Qual o orçamento desta coleção"
+        />
+      </div>
+      <div class="col">
+        <input
+          formControlName="ano"
+          type="number"
+          placeholder="Ano de Lançamento"
+          aria-label="Ano de Lançamento"
+        />
+      </div>
+    </div>
+  </form>
+  <img src="../../../../assets/images/image 1.png" />
+  <div class="buttons">
+    <button class="cancel" type="submit" (click)="onCancel()">Cancelar</button>
+
+    <button type="submit" (click)="onSubmit()">Salvar</button>
+  </div>
+</div>
+<!-- <form [formGroup]="form">
   <div class="row g-3">
     <div class="col">
       <input
@@ -65,4 +132,4 @@
       Salvar
     </button>
   </div>
-</form>
+</form> -->

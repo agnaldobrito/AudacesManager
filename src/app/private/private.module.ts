@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrivateRoutingModule } from './private-routing.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SideBarComponent } from './components/side-bar/side-bar.component';
@@ -24,6 +25,7 @@ import { FullComponent } from './layout/full/full.component';
   imports: [
     CommonModule,
     PrivateRoutingModule,
+
     FormsModule,
     ReactiveFormsModule,
   ],
