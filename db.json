@@ -53,6 +53,15 @@
       "marca": "Cyclone",
       "orcamento": 25000.59,
       "ano": 2023
+    },
+    {
+      "id": 7,
+      "colecao": "Teste 2",
+      "responsavel": "Fulano",
+      "estacao": "Verão",
+      "marca": "Beco da Poeira",
+      "orcamento": 35000.99,
+      "ano": 2024
     }
   ],
   "modelos": [
