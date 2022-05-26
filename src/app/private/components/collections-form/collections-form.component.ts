@@ -42,7 +42,7 @@ export class CollectionsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       responsavel: [
@@ -50,7 +50,7 @@ export class CollectionsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       estacao: [
@@ -58,7 +58,7 @@ export class CollectionsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       marca: [
@@ -66,7 +66,7 @@ export class CollectionsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       orcamento: null,
@@ -90,9 +90,11 @@ export class CollectionsFormComponent implements OnInit {
       this.submitted = true;
       if (this.form.value.id) {
         this._collectionService.update(this.form.value).subscribe();
+        this.onRefresh();
         this._location.back();
       } else {
         this._collectionService.create(this.form.value).subscribe();
+        this.onRefresh();
         this._location.back();
       }
     }
@@ -101,5 +103,8 @@ export class CollectionsFormComponent implements OnInit {
     this.submitted = false;
     this.form.reset();
     this._location.back();
+  }
+  onRefresh() {
+    this._collectionService.list();
   }
 }
