@@ -44,6 +44,15 @@
       "marca": "C&A",
       "orcamento": 10000,
       "ano": 2023
+    },
+    {
+      "id": 6,
+      "colecao": "Coleção Teste",
+      "responsavel": "Agnaldo",
+      "estacao": "Outono",
+      "marca": "Cyclone",
+      "orcamento": 25000.59,
+      "ano": 2023
     }
   ],
   "modelos": [
@@ -52,7 +61,7 @@
       "nome": "Modelo 1",
       "responsavel": "Eduardo",
       "tipo": "Bermuda",
-      "colecao": "Coleção 1",
+      "colecao": "Coleção 2",
       "bordado": true,
       "estampa": false
     },
@@ -66,13 +75,13 @@
       "estampa": true
     },
     {
-      "id": 3,
-      "nome": "shunda",
-      "responsavel": "agnaldo",
-      "tipo": "Bermuda",
-      "colecao": "Coleção 1",
-      "bordado": null,
-      "estampa": null
+      "id": 4,
+      "nome": "Modelo Teste ",
+      "responsavel": "Agnaldo",
+      "tipo": "Camisa",
+      "colecao": "Coleção 4",
+      "bordado": false,
+      "estampa": true
     }
   ]
 }

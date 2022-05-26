@@ -25,7 +25,6 @@ import { FullComponent } from './layout/full/full.component';
   imports: [
     CommonModule,
     PrivateRoutingModule,
-
     FormsModule,
     ReactiveFormsModule,
   ],
