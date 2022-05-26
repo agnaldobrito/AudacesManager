@@ -1,70 +1,82 @@
-<form [formGroup]="form">
-  <div class="row g-3">
-    <div class="col">
-      <input
-        formControlName="nome"
-        type="text"
-        class="form-control"
-        placeholder="Nome da Coleção"
-        aria-label="Nome da Coleção"
-      />
+<section class="container">
+  <h1 *ngIf="form.value.id === null">Criar Modelo</h1>
+  <h1 *ngIf="form.value.id">Editar {{ form.value.nome }}</h1>
+
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col">
+        <input
+          formControlName="nome"
+          type="text"
+          placeholder="Nome da Coleção"
+          aria-label="Nome da Coleção"
+        />
+      </div>
+      <div class="col">
+        <input
+          formControlName="responsavel"
+          type="text"
+          placeholder="Responsável pela coleção"
+          aria-label="Responsável pela coleção"
+        />
+      </div>
     </div>
-    <div class="col">
-      <input
-        formControlName="responsavel"
-        type="text"
-        class="form-control"
-        placeholder="Responsável pela coleção"
-        aria-label="Responsável pela coleção"
-      />
-    </div>
-  </div>
-  <div class="row g-3">
-    <div class="col">
-      <select
-        formControlName="tipo"
-        class="form-select"
-        aria-label="Default select example"
+    <section class="row">
+      <div class="col">
+        <select formControlName="tipo" aria-label="Default select example">
+          <option disabled selected hidden>Tipo do Modelo</option>
+          <option [value]="models" *ngFor="let models of modelTypes">
+            {{ models }}
+          </option>
+        </select>
+      </div>
+      <div class="col">
+        <select formControlName="colecao">
+          <option disabled selected hidden>Selecionar Coleção</option>
+          <option
+            [value]="collection.colecao"
+            *ngFor="let collection of collectionList$ | async"
+          >
+            {{ collection.colecao }}
+          </option>
+        </select>
+      </div>
+    </section>
+
+    <section class="row radio-section">
+      <div class="col">
+        <label>Possui bordado?</label>
+        <div class="radio">
+          <input formControlName="bordado" type="radio" [value]="true" />
+          <label>Sim</label>
+          <input formControlName="bordado" type="radio" [value]="false" />
+          <label>Não</label>
+        </div>
+      </div>
+      <div class="col">
+        <label>Possui estampa?</label>
+        <div class="radio">
+          <input formControlName="estampa" type="radio" [value]="true" />
+          <label>Sim</label>
+          <input formControlName="estampa" type="radio" [value]="false" />
+          <label>Não</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="buttons">
+      <button
+        type="submit"
+        class="delete"
+        *ngIf="form.value.id"
+        (click)="onDelete()"
       >
-        <option selected>Tipo do Modelo</option>
-        <option [value]="models" *ngFor="let models of modelTypes">
-          {{ models }}
-        </option>
-      </select>
-    </div>
-    <div class="col">
-      <select
-        formControlName="colecao"
-        class="form-select"
-        aria-label="Default select example"
-      >
-        <option selected>Selecionar Coleção</option>
-        <option
-          [value]="collection.colecao"
-          *ngFor="let collection of collectionList$ | async"
-        >
-          {{ collection.colecao }}
-        </option>
-      </select>
-    </div>
-  </div>
-  <div class="row g-3">
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value=""
-        id="flexCheckDefault"
-      />
-      <label class="form-check-label" for="flexCheckDefault">
-        Default checkbox
-      </label>
-    </div>
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn" (click)="onCancel()">Cancelar</button>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-      Salvar
-    </button>
-  </div>
-</form>
+        Excluir
+      </button>
+      <button type="submit" class="cancel" (click)="onCancel()">
+        Cancelar
+      </button>
+      <button type="submit" (click)="onSubmit()">Salvar</button>
+    </section>
+  </form>
+</section>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModelsInterface } from '../../interfaces/models-interface';
 import { ModelsService } from '../../services/models.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -15,9 +14,10 @@ import { CollectionInterface } from '../../interfaces/collection-interface';
 })
 export class ModelsFormComponent implements OnInit {
   public form!: FormGroup;
+  public id!: any;
   public submitted = false;
-  public model$!: Observable<ModelsInterface[]>;
-  public collectionList$!: Observable<CollectionInterface[]>;
+  public collectionList$: Observable<CollectionInterface[]> =
+    this._collectionService.list();
   public modelTypes = [
     'Bermuda',
     'Biquini',
@@ -40,7 +40,13 @@ export class ModelsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup();
-    this.collectionList$ = this._collectionService.list();
+    this._route.params.subscribe((params: any) => {
+      this.id = params['id'];
+      const model$ = this._modelService.loadByID(this.id);
+      model$.subscribe((info) => {
+        this.updateForm(info);
+      });
+    });
   }
 
   public formGroup() {
@@ -51,7 +57,7 @@ export class ModelsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       responsavel: [
@@ -59,7 +65,7 @@ export class ModelsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       tipo: [
@@ -67,7 +73,7 @@ export class ModelsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       colecao: [
@@ -75,12 +81,23 @@ export class ModelsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100),
+          Validators.maxLength(20),
         ],
       ],
       bordado: false,
       estampa: false,
     }));
+  }
+  public updateForm(data: any) {
+    this.form.patchValue({
+      id: data.id,
+      nome: data.nome,
+      responsavel: data.responsavel,
+      tipo: data.tipo,
+      colecao: data.colecao,
+      bordado: data.bordado,
+      estampa: data.estampa,
+    });
   }
 
   public onSubmit() {
@@ -88,19 +105,24 @@ export class ModelsFormComponent implements OnInit {
       this.submitted = true;
       if (this.form.value.id) {
         this._modelService.update(this.form.value).subscribe();
+        this.onRefresh();
         this._location.back();
       } else {
         this._modelService.create(this.form.value).subscribe();
-        console.log(this.form.value);
+        this.onRefresh();
         this._location.back();
       }
     }
   }
   public onCancel() {
-    this.form.reset();
     this._location.back();
   }
-  public onDelete(modelo: ModelsInterface) {
-    this._modelService.remove(modelo.id).subscribe();
+  public onDelete() {
+    this._modelService.remove(this.id).subscribe();
+    this.onRefresh();
+    this._location.back();
+  }
+  public onRefresh() {
+    this._modelService.list();
   }
 }
