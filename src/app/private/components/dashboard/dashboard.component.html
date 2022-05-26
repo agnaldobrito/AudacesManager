@@ -1,8 +1,38 @@
-<p>dashboard works!</p>
-<header>
-  <h1><b>Bem vindo</b>, User</h1>
-  <p>Acompanhe a visão geral de suas coleções</p>
-</header>
-<table class="table table-hover">
-  ...
-</table>
+<div class="container">
+  <div class="header">
+    <h1>Bem vindo, User</h1>
+    <p>Acompanhe a visão geral de suas coleções</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      {{ average | currency: "BRL" }}
+    </div>
+    <div class="card">
+      {{ totalCollections }}
+    </div>
+    <div class="card">
+      {{ totalModels }}
+    </div>
+  </div>
+  <div>
+    <h1 class="title">Maiores Orçamentos</h1>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Coleção</th>
+        <th>Orçamento</th>
+        <th>Responsável</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let collectionList of collection?.slice(0, 5)">
+        <td>{{ collectionList.id }}</td>
+        <td>{{ collectionList.colecao }}</td>
+        <td>{{ collectionList.orcamento | currency: "BRL" }}</td>
+        <td>{{ collectionList.responsavel }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
