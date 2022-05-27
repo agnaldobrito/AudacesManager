@@ -1,32 +1,56 @@
-.container {
+.container,
+.form__main,
+.form__row,
+.form__row--item,
+.btn__row {
   display: flex;
+}
+.container {
+  width: 100%;
+  padding: 3rem 0;
+  margin: 0;
   flex-direction: column;
-  width: 80%;
-  row-gap: 4rem;
-  margin: 2.8rem auto;
+  height: 100%;
 }
-h1 {
-  font-weight: 600;
+.form__header {
+  h1 {
+    font-weight: 600;
+  }
+  margin-bottom: 2rem;
 }
-img {
+.form__main {
+  flex-direction: column;
+
   margin: 0 auto;
-  width: 20rem;
-  height: 15rem;
+  width: 70%;
+  height: 100%;
 }
-input {
-  margin: 1rem 0;
+.form__row {
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  img {
+    margin: 0 auto;
+  }
+}
+.form__row--item {
+  flex-direction: column;
+  row-gap: 0.5rem;
+  height: 75px;
 }
 
-.buttons {
-  display: flex;
+.btn__row {
   justify-content: flex-end;
-  column-gap: 2rem;
+  column-gap: 3rem;
 }
+
 .cancel {
   background-color: #ebebeb;
   color: #a098ae;
 }
 .cancel:hover {
   background-color: #d6d3d3;
-  color: white;
+}
+.btn__row {
+  margin-top: 5rem;
 }

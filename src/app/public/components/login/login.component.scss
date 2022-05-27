@@ -12,7 +12,7 @@
   background-color: #ffffff;
   padding: 2rem 4rem;
   border-radius: 0.5rem;
-  row-gap: 2rem;
+  row-gap: 1rem;
 }
 .header__title {
   color: #2c2c2c;
@@ -25,12 +25,25 @@
 
 .login__box--form {
   width: 100%;
+  row-gap: 2rem;
+}
+.form__column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input {
+    row-gap: 2rem;
+  }
+  align-items: flex-start;
+}
+.form__column--item {
+  width: 100%;
+  height: 75px;
 }
 
 .form__input,
 .form__btn {
   width: 100%;
-  margin-top: 1rem;
   border-radius: 0.5rem;
 }
 .form__input {
@@ -45,7 +58,7 @@
   color: #b4b6c1;
 }
 .form__btn {
-  margin-top: 2rem;
+  margin-top: 1rem;
   height: 50px;
   color: #fbf4f4;
   font-size: 18px;
@@ -65,7 +78,7 @@
     cursor: pointer;
     color: #5874df;
   }
-}
-.ng-invalid:not(form).ng-touched {
-  outline: 3px solid red;
+  a:hover {
+    color: #ce5f05;
+  }
 }

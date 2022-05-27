@@ -1,12 +1,35 @@
 .container {
   display: flex;
   flex-direction: column;
-  row-gap: 6rem;
+  row-gap: 3rem;
 }
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  padding: 10px 14px;
+  width: 15rem;
+  height: 90px;
+  background-color: #ebf0fa;
+  border: none;
+  border-radius: 0.5rem;
+  color: #2c2c2c;
+  h3 {
+    font-size: 14px;
+  }
+  p {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 }
 button {
   width: 15rem;

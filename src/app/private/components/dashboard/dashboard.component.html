@@ -5,13 +5,16 @@
   </div>
   <div class="cards">
     <div class="card">
-      {{ average | currency: "BRL" }}
+      <h3>Total de Coleções</h3>
+      <p>{{ totalCollections }}</p>
     </div>
     <div class="card">
-      {{ totalCollections }}
+      <h3>Total de Modelos</h3>
+      <p>{{ totalModels }}</p>
     </div>
     <div class="card">
-      {{ totalModels }}
+      <h3>Orçamento Médio</h3>
+      <p>{{ average | currency: "BRL" }}</p>
     </div>
   </div>
   <div>

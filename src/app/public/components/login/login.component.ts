@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form!: FormGroup;
   invalid: boolean = false;
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder, private _router: Router) {}
 
   ngOnInit(): void {
     this.form = this._fb.group({
@@ -26,10 +27,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Formulário Válido');
-    } else {
-      console.log('Formulário --inválido--');
-      this.invalid = true;
+      this._router.navigate(['../user']);
     }
   }
 }

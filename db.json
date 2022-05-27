@@ -85,10 +85,19 @@
     },
     {
       "id": 4,
-      "nome": "Modelo Teste ",
+      "nome": "Modelo Teste 2",
       "responsavel": "Agnaldo",
       "tipo": "Camisa",
       "colecao": "Coleção 4",
+      "bordado": false,
+      "estampa": true
+    },
+    {
+      "id": 5,
+      "nome": "Teste 18291829",
+      "responsavel": "agnaldo",
+      "tipo": "Calça",
+      "colecao": "Coleção Teste",
       "bordado": false,
       "estampa": true
     }

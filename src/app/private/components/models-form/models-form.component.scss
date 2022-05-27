@@ -1,21 +1,53 @@
-.container {
+.container,
+.modelForm__main,
+.form__row,
+.form__row--item,
+.radio__row,
+.radio__row--item,
+.btn__row,
+.btn__row--item,
+.btn__row--group {
   display: flex;
+}
+.container {
+  width: 100%;
+  padding: 3rem 0;
+  margin: 0;
   flex-direction: column;
-  width: 80%;
-  row-gap: 4rem;
-  margin: 3rem auto;
+  height: 100%;
 }
-h1 {
-  font-weight: 600;
+.modelForm__header {
+  h1 {
+    font-weight: 600;
+  }
+  margin-bottom: 6rem;
 }
-img {
+.modelForm__main {
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0 auto;
-  width: 20rem;
-  height: 15rem;
+  width: 70%;
+  height: 100%;
 }
-input {
-  margin: 1rem 0;
+.form__row {
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
 }
+.form__row--item {
+  flex-direction: column;
+  row-gap: 0.5rem;
+  height: 75px;
+}
+.radio__row {
+  justify-content: space-between;
+}
+.radio__row--item {
+  width: 25rem;
+  flex-direction: column;
+}
+
 .radio {
   display: flex;
   align-items: center;
@@ -29,15 +61,19 @@ input {
   margin: 2rem 0;
 }
 
-.buttons {
-  display: flex;
-  justify-content: flex-end;
-  column-gap: 2rem;
-  width: 100%;
+.btn__row {
+  align-self: flex-end;
+  justify-content: space-between;
+  column-gap: 5rem;
+  margin-top: 4rem;
 }
+
+.btn__row--group {
+  column-gap: 3rem;
+}
+
 .delete {
   background-color: #ff4141;
-  align-self: flex-start;
 }
 .delete:hover {
   background-color: #c93434;

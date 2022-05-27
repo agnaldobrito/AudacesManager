@@ -7,25 +7,38 @@
       </p>
     </div>
 
-    <form [formGroup]="form" class="login__box--form">
-      <input
-        formControlName="email"
-        class="form__input"
-        type="email"
-        placeholder="Informe seu e-mail"
-      />
-      <input
-        formControlName="password"
-        class="form__input"
-        type="password"
-        placeholder="Informe sua senha"
-      />
-      <button
-        (click)="onSubmit()"
-        type="submit"
-        class="form__btn"
-        [routerLink]="['../user']"
-      >
+    <form [formGroup]="form" class="login__box--form" #formDir="ngForm">
+      <div class="form__column">
+        <div class="form__column--item">
+          <input
+            formControlName="email"
+            class="form__input"
+            type="email"
+            placeholder="Informe seu e-mail"
+          />
+          <div
+            *ngIf="form.controls['email'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            Email inválido
+          </div>
+        </div>
+        <div class="form__column--item">
+          <input
+            formControlName="password"
+            class="form__input"
+            type="password"
+            placeholder="Informe sua senha"
+          />
+          <div
+            *ngIf="form.controls['password'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            Senha inválida
+          </div>
+        </div>
+      </div>
+      <button (click)="onSubmit()" type="submit" class="form__btn">
         Entrar
       </button>
     </form>

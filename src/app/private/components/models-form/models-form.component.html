@@ -1,82 +1,128 @@
-<section class="container">
-  <h1 *ngIf="form.value.id === null">Criar Modelo</h1>
-  <h1 *ngIf="form.value.id">Editar {{ form.value.nome }}</h1>
+<div class="container">
+  <section class="modelForm__header">
+    <h1 *ngIf="form.value.id === null">Criar Modelo</h1>
+    <h1 *ngIf="form.value.id">Editar {{ form.value.nome }}</h1>
+  </section>
 
-  <form [formGroup]="form">
-    <div class="row">
-      <div class="col">
-        <input
-          formControlName="nome"
-          type="text"
-          placeholder="Nome da Coleção"
-          aria-label="Nome da Coleção"
-        />
-      </div>
-      <div class="col">
-        <input
-          formControlName="responsavel"
-          type="text"
-          placeholder="Responsável pela coleção"
-          aria-label="Responsável pela coleção"
-        />
-      </div>
-    </div>
-    <section class="row">
-      <div class="col">
-        <select formControlName="tipo" aria-label="Default select example">
-          <option disabled selected hidden>Tipo do Modelo</option>
-          <option [value]="models" *ngFor="let models of modelTypes">
-            {{ models }}
-          </option>
-        </select>
-      </div>
-      <div class="col">
-        <select formControlName="colecao">
-          <option disabled selected hidden>Selecionar Coleção</option>
-          <option
-            [value]="collection.colecao"
-            *ngFor="let collection of collectionList$ | async"
+  <section class="modelForm__main">
+    <form [formGroup]="form" #formDir="ngForm">
+      <div class="form__row">
+        <div class="form__row--item">
+          <input
+            formControlName="nome"
+            type="text"
+            placeholder="Nome do Modelo"
+            aria-label="Nome do Modelo"
+            required
+          />
+          <div
+            *ngIf="form.controls['nome'].invalid && formDir.submitted"
+            class="errorMsg"
           >
-            {{ collection.colecao }}
-          </option>
-        </select>
-      </div>
-    </section>
-
-    <section class="row radio-section">
-      <div class="col">
-        <label>Possui bordado?</label>
-        <div class="radio">
-          <input formControlName="bordado" type="radio" [value]="true" />
-          <label>Sim</label>
-          <input formControlName="bordado" type="radio" [value]="false" />
-          <label>Não</label>
+            <p
+              *ngIf="form.controls['nome'].errors?.['required'] && form.controls['nome'].touched "
+            >
+              Por favor, digite o nome do modelo
+            </p>
+            <p *ngIf="form.controls['nome'].errors?.['minlength']">
+              Mínimo de 2 caracteres
+            </p>
+            <p *ngIf="form.controls['nome'].errors?.['maxlength']">
+              Mínimo de 20 caracteres
+            </p>
+          </div>
+        </div>
+        <div class="form__row--item">
+          <input
+            formControlName="responsavel"
+            type="text"
+            placeholder="Responsável pelo modelo"
+            aria-label="Responsável pela modelo"
+          />
+          <div
+            *ngIf="form.controls['responsavel'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            <p
+              *ngIf="form.controls['responsavel'].errors?.['required'] && form.controls['responsavel'].touched "
+            >
+              Por favor, digite o nome do responsável
+            </p>
+            <p *ngIf="form.controls['responsavel'].errors?.['minlength']">
+              Mínimo de 2 caracteres
+            </p>
+            <p *ngIf="form.controls['responsavel'].errors?.['maxlength']">
+              Mínimo de 20 caracteres
+            </p>
+          </div>
         </div>
       </div>
-      <div class="col">
-        <label>Possui estampa?</label>
-        <div class="radio">
-          <input formControlName="estampa" type="radio" [value]="true" />
-          <label>Sim</label>
-          <input formControlName="estampa" type="radio" [value]="false" />
-          <label>Não</label>
+
+      <div class="form__row">
+        <div class="form__row--item">
+          <select formControlName="tipo" aria-label="Escolha o Modelo">
+            <option disabled selected hidden>Tipo do Modelo</option>
+            <option [value]="models" *ngFor="let models of modelTypes">
+              {{ models }}
+            </option>
+          </select>
+          <p
+            *ngIf="form.controls['tipo'].touched && formDir.submitted"
+            class="errorMsg"
+          >
+            Por favor, selecione o tipo do modelo
+          </p>
+        </div>
+        <div class="form__row--item">
+          <select formControlName="colecao" aria-label="Escolha a Coleção">
+            <option disabled selected hidden>Selecionar Coleção</option>
+            <option
+              [value]="collection.colecao"
+              *ngFor="let collection of collectionList$ | async"
+            >
+              {{ collection.colecao }}
+            </option>
+          </select>
+          <p
+            *ngIf="form.controls['colecao'].touched && formDir.submitted"
+            class="errorMsg"
+          >
+            Por favor, selecione a coleção do modelo
+          </p>
         </div>
       </div>
-    </section>
+      <div class="radio__row radio-section">
+        <div class="radio__row--item">
+          <label>Possui bordado?</label>
+          <div class="radio">
+            <input formControlName="bordado" type="radio" [value]="true" />
+            <label>Sim</label>
+            <input formControlName="bordado" type="radio" [value]="false" />
+            <label>Não</label>
+          </div>
+        </div>
+        <div class="radio__row--item">
+          <label>Possui estampa?</label>
+          <div class="radio">
+            <input formControlName="estampa" type="radio" [value]="true" />
+            <label>Sim</label>
+            <input formControlName="estampa" type="radio" [value]="false" />
+            <label>Não</label>
+          </div>
+        </div>
+      </div>
 
-    <section class="buttons">
-      <button
-        type="submit"
-        class="delete"
-        *ngIf="form.value.id"
-        (click)="onDelete()"
-      >
-        Excluir
-      </button>
-      <button type="submit" class="cancel" (click)="onCancel()">
-        Cancelar
-      </button>
-      <button type="submit" (click)="onSubmit()">Salvar</button>
-    </section>
-  </form>
-</section>
+      <div class="btn__row">
+        <div class="btn__row--item">
+          <button class="delete" *ngIf="form.value.id" (click)="onDelete()">
+            Excluir
+          </button>
+        </div>
+        <div class="btn__row--group">
+          <button class="cancel" (click)="onCancel()">Cancelar</button>
+          <button type="submit" (click)="onSubmit()">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

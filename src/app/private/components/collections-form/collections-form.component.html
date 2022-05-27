@@ -1,67 +1,139 @@
-<section class="container">
-  <h1 *ngIf="form.value.id === null">Criar Coleção</h1>
-  <h1 *ngIf="form.value.id">Editar {{ form.value.colecao }}</h1>
-  <form [formGroup]="form">
-    <section class="row">
-      <div class="col">
-        <input
-          formControlName="colecao"
-          type="text"
-          placeholder="Nome da Coleção"
-          aria-label="Nome da Coleção"
-        />
-      </div>
-      <div class="col">
-        <input
-          formControlName="responsavel"
-          type="text"
-          placeholder="Responsável pela coleção"
-          aria-label="Responsável pela coleção"
-        />
-      </div>
-    </section>
-
-    <section class="row">
-      <div class="col">
-        <input
-          formControlName="estacao"
-          type="text"
-          placeholder="Para qual Estação?"
-          aria-label="Para qual Estação?"
-        />
-      </div>
-      <div class="col">
-        <input
-          formControlName="marca"
-          type="text"
-          placeholder="Para qual marca você está criando?"
-          aria-label="Para qual marca você está criando?"
-        />
-      </div>
-    </section>
-    <section class="row">
-      <div class="col">
-        <input
-          formControlName="orcamento"
-          type="number"
-          placeholder="Qual o orçamento desta coleção"
-          aria-label="Qual o orçamento desta coleção"
-        />
-      </div>
-      <div class="col">
-        <input
-          formControlName="ano"
-          type="number"
-          placeholder="Ano de Lançamento"
-          aria-label="Ano de Lançamento"
-        />
-      </div>
-    </section>
-  </form>
-  <img src="../../../../assets/images/image 1.png" />
-  <section class="buttons">
-    <button class="cancel" type="submit" (click)="onCancel()">Cancelar</button>
-
-    <button type="submit" (click)="onSubmit()">Salvar</button>
+<div class="container">
+  <section class="form__header">
+    <h1 *ngIf="form.value.id == null">Criar Coleção</h1>
+    <h1 *ngIf="form.value.id">Editar {{ form.value.colecao }}</h1>
   </section>
-</section>
+
+  <section class="form__main">
+    <form [formGroup]="form" #formDir="ngForm">
+      <div class="form__row">
+        <div class="form__row--item">
+          <input
+            formControlName="colecao"
+            type="text"
+            placeholder="Nome da Coleção"
+            aria-label="Nome da Coleção"
+            required
+          />
+          <div
+            *ngIf="form.controls['colecao'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            <p
+              *ngIf="form.controls['colecao'].errors?.['required'] && form.controls['colecao'].touched "
+            >
+              Por favor, digite o nome da coleção
+            </p>
+            <p *ngIf="form.controls['colecao'].errors?.['minlength']">
+              Mínimo de 2 caracteres
+            </p>
+            <p *ngIf="form.controls['colecao'].errors?.['maxlength']">
+              Mínimo de 20 caracteres
+            </p>
+          </div>
+        </div>
+        <div class="form__row--item">
+          <input
+            formControlName="responsavel"
+            type="text"
+            placeholder="Responsável pela coleção"
+            aria-label="Responsável pela coleção"
+          />
+          <div
+            *ngIf="form.controls['responsavel'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            <p
+              *ngIf="form.controls['responsavel'].errors?.['required'] && form.controls['responsavel'].touched "
+            >
+              Por favor, digite o nome do responsável
+            </p>
+            <p *ngIf="form.controls['responsavel'].errors?.['minlength']">
+              Mínimo de 2 caracteres
+            </p>
+            <p *ngIf="form.controls['responsavel'].errors?.['maxlength']">
+              Mínimo de 20 caracteres
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__row">
+        <div class="form__row--item">
+          <input
+            formControlName="estacao"
+            type="text"
+            placeholder="Para qual Estação?"
+            aria-label="Para qual Estação?"
+          />
+          <div
+            *ngIf="form.controls['estacao'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            <p
+              *ngIf="form.controls['estacao'].errors?.['required'] && form.controls['estacao'].touched "
+            >
+              Por favor, digite o nome da estação do ano
+            </p>
+            <p *ngIf="form.controls['estacao'].errors?.['minlength']">
+              Mínimo de 2 caracteres
+            </p>
+            <p *ngIf="form.controls['estacao'].errors?.['maxlength']">
+              Mínimo de 20 caracteres
+            </p>
+          </div>
+        </div>
+        <div class="form__row--item">
+          <input
+            formControlName="marca"
+            type="text"
+            placeholder="Para qual marca você está criando?"
+            aria-label="Para qual marca você está criando?"
+          />
+          <div
+            *ngIf="form.controls['marca'].invalid && formDir.submitted"
+            class="errorMsg"
+          >
+            <p
+              *ngIf="form.controls['marca'].errors?.['required'] && form.controls['marca'].touched "
+            >
+              Por favor, digite o nome da marca
+            </p>
+            <p *ngIf="form.controls['marca'].errors?.['minlength']">
+              Mínimo de 2 caracteres
+            </p>
+            <p *ngIf="form.controls['marca'].errors?.['maxlength']">
+              Mínimo de 20 caracteres
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section class="form__row">
+        <div class="form__row--item">
+          <input
+            formControlName="orcamento"
+            type="number"
+            placeholder="Qual o orçamento desta coleção"
+            aria-label="Qual o orçamento desta coleção"
+          />
+        </div>
+        <div class="form__row--item">
+          <input
+            formControlName="ano"
+            type="number"
+            placeholder="Ano de Lançamento"
+            aria-label="Ano de Lançamento"
+          />
+        </div>
+      </section>
+      <div class="form__row">
+        <img src="../../../../assets/images/image 1.png" />
+      </div>
+      <div class="btn__row">
+        <button class="cancel" (click)="onCancel()">Cancelar</button>
+        <button type="submit" (click)="onSubmit()">Salvar</button>
+      </div>
+    </form>
+  </section>
+</div>
