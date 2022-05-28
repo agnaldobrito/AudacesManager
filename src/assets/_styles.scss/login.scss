@@ -1,0 +1,107 @@
+.container,
+.login__box,
+.login__box--header,
+.login__box--form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login__box {
+  width: 30rem;
+  height: 25.5rem;
+  background-color: #ffffff;
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
+  row-gap: 1rem;
+}
+.header__box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  column-gap: 4rem;
+}
+
+.box__btn {
+  padding-top: 0.3rem;
+  align-items: center;
+  border: none;
+  background-color: none;
+}
+.box__btn--img {
+  align-self: center;
+}
+.header__title {
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+.header__title {
+  color: #2c2c2c;
+  font-weight: 600;
+}
+.header__subTitle {
+  color: #b4b6c1;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.login__box--form {
+  width: 100%;
+  row-gap: 2rem;
+}
+
+.form__column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input {
+    row-gap: 2rem;
+  }
+  align-items: flex-start;
+}
+.form__column--item {
+  width: 100%;
+  height: 75px;
+}
+
+.form__input,
+.form__btn {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.form__input {
+  padding: 1rem;
+  border: none;
+  outline: 1px solid #ebf0fa;
+}
+.form__input:focus {
+  outline: 2px solid #5874df;
+}
+.form__input::placeholder {
+  color: #b4b6c1;
+}
+.form__btn {
+  margin-top: 1rem;
+  height: 50px;
+  color: #fbf4f4;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+}
+.forgotPwd {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+.forgotPwd__text {
+  color: #989898;
+}
+.forgotPwd__btn {
+  cursor: pointer;
+  color: #5874df;
+}
+.forgotPwd__btn:hover {
+  color: #ce5f05;
+}

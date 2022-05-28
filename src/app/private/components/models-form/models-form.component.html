@@ -1,10 +1,10 @@
-<div class="container">
-  <section class="modelForm__header">
+<div class="form__container">
+  <section class="form__header">
     <h1 *ngIf="form.value.id === null">Criar Modelo</h1>
     <h1 *ngIf="form.value.id">Editar {{ form.value.nome }}</h1>
   </section>
 
-  <section class="modelForm__main">
+  <section class="form__main">
     <form [formGroup]="form" #formDir="ngForm">
       <div class="form__row">
         <div class="form__row--item">
@@ -95,18 +95,38 @@
         <div class="radio__row--item">
           <label>Possui bordado?</label>
           <div class="radio">
-            <input formControlName="bordado" type="radio" [value]="true" />
+            <input
+              class="radio-btn"
+              formControlName="bordado"
+              type="radio"
+              [value]="true"
+            />
             <label>Sim</label>
-            <input formControlName="bordado" type="radio" [value]="false" />
+            <input
+              class="radio-btn"
+              formControlName="bordado"
+              type="radio"
+              [value]="false"
+            />
             <label>Não</label>
           </div>
         </div>
         <div class="radio__row--item">
           <label>Possui estampa?</label>
           <div class="radio">
-            <input formControlName="estampa" type="radio" [value]="true" />
+            <input
+              class="radio-btn"
+              formControlName="estampa"
+              type="radio"
+              [value]="true"
+            />
             <label>Sim</label>
-            <input formControlName="estampa" type="radio" [value]="false" />
+            <input
+              class="radio-btn"
+              formControlName="estampa"
+              type="radio"
+              [value]="false"
+            />
             <label>Não</label>
           </div>
         </div>

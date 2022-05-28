@@ -1,26 +1,29 @@
-<div class="container">
-  <div class="header">
-    <h1 class="title">Modelos</h1>
-    <button type="button" [routerLink]="['novo']">Criar Modelo</button>
+<div class="list__container">
+  <div class="list__header">
+    <h1 class="list__title">Modelos</h1>
+    <button type="button" [routerLink]="['novo']">Criar Modelos</button>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ModeloID</th>
-        <th>Nome Modelo</th>
-        <th>Coleção</th>
-        <th>Responsável</th>
+  <table class="list__table">
+    <thead class="table__head">
+      <tr class="table__head--row">
+        <th class="head__row--item">ID</th>
+        <th class="head__row--item">Coleção</th>
+        <th class="head__row--item">Estação</th>
+        <th class="head__row--item">Responsável</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table__body">
       <tr
+        class="table__body--row"
         *ngFor="let modelList of model$ | async"
         (click)="onEdit(modelList.id)"
       >
-        <td>{{ modelList.id }}</td>
-        <td>{{ modelList.nome }}</td>
-        <td>{{ modelList.colecao }}</td>
-        <td>{{ modelList.responsavel }}</td>
+        <td class="body__row--item">{{ modelList.id }}</td>
+        <td class="body__row--item">{{ modelList.nome }}</td>
+        <td class="body__row--item">
+          {{ modelList.colecao }}
+        </td>
+        <td class="body__row--item">{{ modelList.responsavel }}</td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,67 @@
+.dashboard__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+.dashboard__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.dashboard__card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.card__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+  width: 20%;
+  height: 90px;
+  background-color: #ebf0fa;
+  border: none;
+  border-radius: 0.5rem;
+  color: #2c2c2c;
+}
+.card__box--title {
+  font-size: 14px;
+}
+.card__box--info {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.dashboard__main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+.list__head--row,
+.list__body--row {
+  display: flex;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom: 1.5px solid #e4e4e4;
+}
+.list__head--row {
+  font-weight: 600;
+  height: 3rem;
+  width: 100%;
+}
+.head__row--cell {
+  width: 22%;
+}
+.list__body--row {
+  padding: 1.5rem 0;
+}
+.body__row--cell {
+  width: 22%;
+}

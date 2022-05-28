@@ -1,41 +1,49 @@
-<div class="container">
-  <div class="header">
+<div class="dashboard__container">
+  <div class="dashboard__header">
     <h1>Bem vindo, User</h1>
     <p>Acompanhe a visão geral de suas coleções</p>
   </div>
-  <div class="cards">
-    <div class="card">
-      <h3>Total de Coleções</h3>
-      <p>{{ totalCollections }}</p>
+  <div class="dashboard__card">
+    <div class="card__box">
+      <h3 class="card__box--title">Total de Coleções</h3>
+      <p class="card__box--info">{{ totalCollections }}</p>
     </div>
-    <div class="card">
-      <h3>Total de Modelos</h3>
-      <p>{{ totalModels }}</p>
+    <div class="card__box">
+      <h3 class="card__box--title">Total de Modelos</h3>
+      <p class="card__box--info">{{ totalModels }}</p>
     </div>
-    <div class="card">
-      <h3>Orçamento Médio</h3>
-      <p>{{ average | currency: "BRL" }}</p>
+    <div class="card__box">
+      <h3 class="card__box--title">Orçamento Médio</h3>
+      <p class="card__box--info">{{ average | currency: "BRL" }}</p>
     </div>
   </div>
-  <div>
-    <h1 class="title">Maiores Orçamentos</h1>
+
+  <div class="dashboard__main">
+    <div class="main__header">
+      <h1 class="main__header--title">Maiores Orçamentos</h1>
+    </div>
+    <table class="dashboard__list">
+      <thead class="list__head">
+        <tr class="list__head--row">
+          <th class="head__row--cell">ID</th>
+          <th class="head__row--cell">Coleção</th>
+          <th class="head__row--cell">Orçamento</th>
+          <th class="head__row--cell">Responsável</th>
+        </tr>
+      </thead>
+      <tbody class="list__body">
+        <tr
+          class="list__body--row"
+          *ngFor="let collectionList of collection?.slice(0, 5)"
+        >
+          <td class="body__row--cell">{{ collectionList.id }}</td>
+          <td class="body__row--cell">{{ collectionList.colecao }}</td>
+          <td class="body__row--cell">
+            {{ collectionList.orcamento | currency: "BRL" }}
+          </td>
+          <td class="body__row--cell">{{ collectionList.responsavel }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Coleção</th>
-        <th>Orçamento</th>
-        <th>Responsável</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let collectionList of collection?.slice(0, 5)">
-        <td>{{ collectionList.id }}</td>
-        <td>{{ collectionList.colecao }}</td>
-        <td>{{ collectionList.orcamento | currency: "BRL" }}</td>
-        <td>{{ collectionList.responsavel }}</td>
-      </tr>
-    </tbody>
-  </table>
 </div>

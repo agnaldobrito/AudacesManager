@@ -1,0 +1,42 @@
+.list__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+.list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.table__head--row,
+.table__body--row {
+  display: flex;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom: 1.5px solid #e4e4e4;
+}
+.table__head--row {
+  font-weight: 600;
+  height: 3rem;
+  width: 100%;
+}
+.head__row--item {
+  width: 22%;
+}
+
+.table__body--row {
+  padding: 1.5rem 0;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.table__body--row:hover {
+  background-color: #ebf0fe;
+  color: #5874df;
+  transform: scale(1.05);
+}
+
+.body__row--item {
+  width: 22%;
+}

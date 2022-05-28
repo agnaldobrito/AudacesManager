@@ -1,26 +1,29 @@
-<div class="container">
-  <div class="header">
-    <h1 class="title">Coleções</h1>
+<div class="list__container">
+  <div class="list__header">
+    <h1 class="list__title">Coleções</h1>
     <button type="button" [routerLink]="['novo']">Criar Coleção</button>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Coleção</th>
-        <th>Estação e Lançamento</th>
-        <th>Responsável</th>
+  <table class="list__table">
+    <thead class="table__head">
+      <tr class="table__head--row">
+        <th class="head__row--item">ID</th>
+        <th class="head__row--item">Coleção</th>
+        <th class="head__row--item">Estação</th>
+        <th class="head__row--item">Responsável</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table__body">
       <tr
+        class="table__body--row"
         *ngFor="let collectionList of collection$ | async"
         (click)="onEdit(collectionList.id)"
       >
-        <td>{{ collectionList.id }}</td>
-        <td>{{ collectionList.colecao }}</td>
-        <td>{{ collectionList.estacao + " " + collectionList.ano }}</td>
-        <td>{{ collectionList.responsavel }}</td>
+        <td class="body__row--item">{{ collectionList.id }}</td>
+        <td class="body__row--item">{{ collectionList.colecao }}</td>
+        <td class="body__row--item">
+          {{ collectionList.estacao + " " + collectionList.ano }}
+        </td>
+        <td class="body__row--item">{{ collectionList.responsavel }}</td>
       </tr>
     </tbody>
   </table>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="form__container">
   <section class="form__header">
     <h1 *ngIf="form.value.id == null">Criar Coleção</h1>
     <h1 *ngIf="form.value.id">Editar {{ form.value.colecao }}</h1>
@@ -128,11 +128,16 @@
         </div>
       </section>
       <div class="form__row">
-        <img src="../../../../assets/images/image 1.png" />
+        <img class="form__img" src="../../../../assets/images/image 1.png" />
       </div>
       <div class="btn__row">
-        <button class="cancel" (click)="onCancel()">Cancelar</button>
-        <button type="submit" (click)="onSubmit()">Salvar</button>
+        <div class="btn__row--item">
+          <button class="delete" *ngIf="form.value.nome">Excluir</button>
+        </div>
+        <div class="btn__row--group">
+          <button class="cancel" (click)="onCancel()">Cancelar</button>
+          <button type="submit" (click)="onSubmit()">Salvar</button>
+        </div>
       </div>
     </form>
   </section>
