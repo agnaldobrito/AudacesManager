@@ -38,30 +38,12 @@
     },
     {
       "id": 5,
-      "colecao": "Coleção 5",
-      "responsavel": "Yan",
-      "estacao": "Inverno ",
-      "marca": "C&A",
-      "orcamento": 10000,
-      "ano": 2023
-    },
-    {
-      "id": 6,
-      "colecao": "Coleção Teste",
-      "responsavel": "Agnaldo",
-      "estacao": "Outono",
-      "marca": "Cyclone",
-      "orcamento": 25000.59,
-      "ano": 2023
-    },
-    {
-      "id": 7,
-      "colecao": "Teste 2",
-      "responsavel": "Fulano",
-      "estacao": "Verão",
-      "marca": "Beco da Poeira",
-      "orcamento": 35000.99,
-      "ano": 2024
+      "colecao": "Teste",
+      "responsavel": "Tester",
+      "estacao": "Inverno",
+      "marca": "Riachuelo",
+      "orcamento": 2000,
+      "ano": 2022
     }
   ],
   "modelos": [
@@ -77,27 +59,18 @@
     {
       "id": 2,
       "nome": "Modelo 2",
+      "responsavel": "Pamylla",
+      "tipo": "Chapéu",
+      "colecao": "Coleção 3",
+      "bordado": false,
+      "estampa": true
+    },
+    {
+      "id": 3,
+      "nome": "Modelo 3",
       "responsavel": "Yan",
-      "tipo": "Camisa",
-      "colecao": "Coleção 5",
-      "bordado": false,
-      "estampa": true
-    },
-    {
-      "id": 4,
-      "nome": "Modelo Teste 2",
-      "responsavel": "Agnaldo",
-      "tipo": "Camisa",
-      "colecao": "Coleção 4",
-      "bordado": false,
-      "estampa": true
-    },
-    {
-      "id": 5,
-      "nome": "Teste 18291829",
-      "responsavel": "agnaldo",
-      "tipo": "Calça",
-      "colecao": "Coleção Teste",
+      "tipo": "Bermuda",
+      "colecao": "Coleção 1",
       "bordado": false,
       "estampa": true
     }
