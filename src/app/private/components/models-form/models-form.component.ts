@@ -14,7 +14,6 @@ import { CollectionInterface } from '../../interfaces/collection-interface';
 })
 export class ModelsFormComponent implements OnInit {
   public form!: FormGroup;
-  public id!: any;
   public submitted = false;
   public collectionList$: Observable<CollectionInterface[]> =
     this._collectionService.list();
@@ -41,8 +40,8 @@ export class ModelsFormComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup();
     this._route.params.subscribe((params: any) => {
-      this.id = params['id'];
-      const model$ = this._modelService.loadByID(this.id);
+      const id = params['id'];
+      const model$ = this._modelService.loadByID(id);
       model$.subscribe((info) => {
         this.updateForm(info);
       });
@@ -106,10 +105,12 @@ export class ModelsFormComponent implements OnInit {
       if (this.form.value.id) {
         this._modelService.update(this.form.value).subscribe();
         this.onRefresh();
+        alert(`Modelo: ${this.form.value.nome} foi editado com sucesso`);
         this._location.back();
       } else {
         this._modelService.create(this.form.value).subscribe();
         this.onRefresh();
+        alert(`Modelo criado com sucesso`);
         this._location.back();
       }
     }
@@ -118,7 +119,7 @@ export class ModelsFormComponent implements OnInit {
     this._location.back();
   }
   public onDelete() {
-    this._modelService.remove(this.id).subscribe();
+    this._modelService.remove(this.form.value.id).subscribe();
     this.onRefresh();
     this._location.back();
   }

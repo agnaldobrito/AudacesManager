@@ -91,10 +91,12 @@ export class CollectionsFormComponent implements OnInit {
       if (this.form.value.id) {
         this._collectionService.update(this.form.value).subscribe();
         this.onRefresh();
+        alert(`Coleção: ${this.form.value.colecao} foi editado com sucesso`);
         this._location.back();
       } else {
         this._collectionService.create(this.form.value).subscribe();
         this.onRefresh();
+        alert(`Coleção criada com sucesso`);
         this._location.back();
       }
     }
