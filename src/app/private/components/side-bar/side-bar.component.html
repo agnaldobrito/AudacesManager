@@ -1,29 +1,33 @@
-<div class="sideMenu">
-  <div class="sideMenu__logo">
-    <img src="../../../../assets/images/isa 1.png" alt="" />
-    <p class="sideMenu__logo--font">AudacesManager</p>
-  </div>
-  <div
-    class="sideMenu__dashboard"
-    [routerLink]="['dashboard']"
-    routerLinkActive="selected"
-  >
-    Dashboard
-  </div>
-  <div class="sideMenu__box">
-    <h4 class="sideMenu__box--title">Cadastros</h4>
-    <ul class="sideMenu__box--list">
-      <li [routerLink]="['colecoes']" routerLinkActive="selected">Coleções</li>
-      <li [routerLink]="['modelos']" routerLinkActive="selected">Modelos</li>
-    </ul>
-  </div>
+<div class="sideMenu__container">
+  <div class="sideMenu">
+    <div class="sideMenu__logo">
+      <img src="../../../../assets/images/isa 1.png" alt="" />
+      <p class="sideMenu__logo--font">AudacesManager</p>
+    </div>
+    <div
+      class="sideMenu__dashboard"
+      [routerLink]="['dashboard']"
+      routerLinkActive="selected"
+    >
+      Dashboard
+    </div>
+    <div class="sideMenu__box">
+      <h4 class="sideMenu__box--title">Cadastros</h4>
+      <ul class="sideMenu__box--list">
+        <li [routerLink]="['colecoes']" routerLinkActive="selected">
+          Coleções
+        </li>
+        <li [routerLink]="['modelos']" routerLinkActive="selected">Modelos</li>
+      </ul>
+    </div>
 
-  <div class="sideMenu__box">
-    <h4 class="sideMenu__box--title">Suporte</h4>
-    <ul class="sideMenu__box--list">
-      <li>Obter Ajuda</li>
-      <li>Enviar Comentários</li>
-    </ul>
+    <div class="sideMenu__box">
+      <h4 class="sideMenu__box--title">Suporte</h4>
+      <ul class="sideMenu__box--list">
+        <li>Obter Ajuda</li>
+        <li>Enviar Comentários</li>
+      </ul>
+    </div>
+    <div class="sideMenu__logout" [routerLink]="['/']">Logout</div>
   </div>
-  <div class="sideMenu__logout" [routerLink]="['/']">Logout</div>
 </div>
