@@ -1,13 +1,19 @@
 .list__container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 3rem;
 }
 .list__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 3rem;
+  width: 100%;
+  margin: 3rem 0;
+}
+.list__table {
+  width: 90%;
+  height: auto;
+  margin: auto 0;
 }
 
 .table__head--row,
@@ -15,6 +21,7 @@
   display: flex;
   font-size: 1rem;
   text-align: center;
+  justify-content: space-around;
   border-bottom: 1.5px solid #e4e4e4;
 }
 .table__head--row {
