@@ -38,12 +38,21 @@
     },
     {
       "id": 5,
-      "colecao": "Teste",
+      "colecao": "Coleção 5",
       "responsavel": "Tester",
       "estacao": "Inverno",
       "marca": "Riachuelo",
       "orcamento": 2000,
       "ano": 2022
+    },
+    {
+      "id": 6,
+      "colecao": "Teste",
+      "responsavel": "Tester",
+      "estacao": "Inverno",
+      "marca": "C&A",
+      "orcamento": 2500.59,
+      "ano": 2023
     }
   ],
   "modelos": [
@@ -73,6 +82,15 @@
       "colecao": "Coleção 1",
       "bordado": false,
       "estampa": true
+    },
+    {
+      "id": 4,
+      "nome": "Modelo Teste",
+      "responsavel": "Tester",
+      "tipo": "Chapéu",
+      "colecao": "Teste",
+      "bordado": false,
+      "estampa": false
     }
   ]
 }
