@@ -5,6 +5,7 @@
 @import url(./assets/_styles.scss/table-list.scss);
 @import url(./assets/_styles.scss/form.scss);
 * {
+  font-size: 16px;
   font-family: "Inter", sans-serif;
 }
 html,
@@ -17,10 +18,18 @@ body {
   color: #6a7090;
 }
 .mat-typography {
-  h1 {
+  h1,
+  h4 {
     font-family: "Inter", sans-serif !important;
-    color: #2c2c2c !important;
     font-weight: 600 !important;
+    span {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #6a7090;
+    }
+  }
+  h1 {
+    color: #2c2c2c !important;
   }
 }
 input {
