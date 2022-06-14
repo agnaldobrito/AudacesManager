@@ -6,7 +6,7 @@
 ## Sobre o projeto 
 Este projeto faz parte do desafio de conclusão do módulo 1 da **DevInHouse - Turma Audaces**.
 
-O desafio era criar uma aplicação web utilizando o framework **[Angular](https://github.com/angular/angular-cli)  versão 13.3.3** para controle e gerenciamento de coleções e modelos de vestuários. Como API REST fake foi utilizado **[JSON server](https://github.com/typicode/json-server)**.
+O desafio era criar uma aplicação web utilizando o framework **[Angular](https://github.com/angular/angular-cli)  versão 13.3.3** para controle e gerenciamento de coleções e modelos de vestuários. Como fake API REST  foi utilizado **[JSON server](https://github.com/typicode/json-server)**.
 
 ## Como inciar o projeto
 
