@@ -1,27 +1,36 @@
-# PROJETO2
+# Audaces Manager 
+> Controle e gerenciamento de coleções e modelos de vestuários
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
-## Development server
+## Sobre o projeto 
+Este projeto faz parte do desafio de conclusão do módulo 1 da **DevInHouse - Turma Audaces**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O desafio era criar uma aplicação web utilizando o framework **[Angular](https://github.com/angular/angular-cli)  versão 13.3.3** para controle e gerenciamento de coleções e modelos de vestuários. Como fake API REST  foi utilizado **[JSON server](https://github.com/typicode/json-server)**.
 
-## Code scaffolding
+<div align="center">
+<img width="550em" src="Screenshot2.jpg" alt="Login screen" width="800"/>
+<img width="550em" src="Screenshot3.jpg" alt="Login screen" width="800"/>
+</div>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Como inciar o projeto
 
-## Build
+Para iniciar o projeto faça o download do código (ou faça um Git clone) e depois, dentro do repositório abra o terminal e execute o comando:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+````sh
+npm install
+````
+Depois de finalizado o download abra o servidor do projeto com o comando:
 
-## Running unit tests
+````sh
+ng serve
+````
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para iniciar o **JSON server** execute o comando :
 
-## Running end-to-end tests
+````sh
+json-server --watch db.json
+````
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
